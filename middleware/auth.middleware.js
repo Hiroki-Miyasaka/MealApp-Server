@@ -1,7 +1,7 @@
-import { verifyToken, isTokenExpired } from "../service/jwt.service";
+import { verifyToken, isTokenExpired } from "../service/jwt.service.js";
 
 const auth = async(req, res, next) => {
-    const token = req.headers.authrization;
+    const token = req.headers.authorization;
     
     try{
         const decoded = verifyToken(token);
