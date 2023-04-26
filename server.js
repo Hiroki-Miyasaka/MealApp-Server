@@ -3,6 +3,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 
+import authRoutes from "./routes/auth.route.js";
+
 import db from "./config/db.config.js";
 
 dotenv.config();
@@ -19,6 +21,8 @@ app.get("/health", (req, res) => {
         app: "MealApp"
     });
 });
+
+app.use("/api/auth", authRoutes);
 
 const PORT = process.env.PORT || 3001;
 
