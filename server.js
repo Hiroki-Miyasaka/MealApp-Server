@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 
+import header_middleware from "./middleware/header.js";
 import authRoutes from "./routes/auth.route.js";
 import userRoutes from "./routes/user.route.js";
 
@@ -11,6 +12,7 @@ import db from "./config/db.config.js";
 dotenv.config();
 const app = express();
 
+app.use(header_middleware);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
