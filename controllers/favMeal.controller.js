@@ -23,3 +23,23 @@ export const createFavMeal = async(req, res) => {
         })
     }
 };
+
+export const deleteFavMeal = async(req, res) => {
+    const userId = req.user;
+
+    try{
+        const { id } = req.body;
+        await User.findByIdAndUpdate(userId, {$pull: {favMeals: {idMeal: id} } });
+        console.log("success");
+        res.status(201).json({
+            status: "success",
+            message: "Meal removed from favorite"
+        })
+    } catch(error){
+        console.log("fail");
+        res.status(500).json({
+            status: "fail",
+            message: error.message
+        })
+    }
+};
