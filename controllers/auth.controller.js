@@ -44,7 +44,7 @@ export const login = async(req, res) => {
         if(!user){
             return res.status(400).json({
                 status: "fail",
-                message: "Incorrect password"
+                message: "Incorrect email"
             });
         }
 
