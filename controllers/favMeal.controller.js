@@ -28,9 +28,8 @@ export const deleteFavMeal = async(req, res) => {
     const userId = req.user;
 
     try{
-        const { id } = req.body;
-        await User.findByIdAndUpdate(userId, {$pull: {favMeals: {idMeal: id} } });
-        console.log("success");
+        const { idMeal } = req.body;
+        await User.findByIdAndUpdate(userId, {$pull: {favMeals: {idMeal: idMeal} } });
         res.status(201).json({
             status: "success",
             message: "Meal removed from favorite"
