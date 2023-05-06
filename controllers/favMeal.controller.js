@@ -35,7 +35,6 @@ export const deleteFavMeal = async(req, res) => {
             message: "Meal removed from favorite"
         })
     } catch(error){
-        console.log("fail");
         res.status(500).json({
             status: "fail",
             message: error.message
